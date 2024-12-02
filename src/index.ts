@@ -4,4 +4,4 @@ import { robot } from "./bot.js";
 
 log.info("Starting probot");
 
-run(robot)
+run(robot);
