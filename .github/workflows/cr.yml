@@ -1,21 +1,28 @@
 name: Code Review
 
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+
 permissions:
   contents: read
   pull-requests: write
 
-on:
-  pull_request:
-    types: [opened, reopened, synchronize]
+env:
+  AZURE_API_VERSION: 2024-10-01-preview
+  AZURE_DEPLOYMENT: gpt-4o-mini
+  LANGUAGE: English
 
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: anc95/ChatGPT-CodeReview@main
+      - uses: bbonkr/ChatGPT-CodeReview@main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          LANGUAGE: English
-          OPENAI_API_ENDPOINT: https://api.bianxie.ai/v1
-          LOG_LEVEL: debug
+          OPENAI_API_KEY: ${{ secrets.AZURE_OPENAI_KEY }}
+          LANGUAGE: ${{ env.LANGUAGE }}
+          OPENAI_API_ENDPOINT: ${{ secrets.AZURE_OPENAI_ENDPOINT }}
+          AZURE_API_VERSION: ${{ env.AZURE_API_VERSION }}
+          AZURE_DEPLOYMENT: ${{ env.AZURE_DEPLOYMENT }}
+          # LOG_LEVEL: debug
