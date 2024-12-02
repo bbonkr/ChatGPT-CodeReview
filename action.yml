@@ -1,8 +1,8 @@
-name: ChatGPT CodeReviewer
-description: 'A Code Review Action Powered By ChatGPT'
+name: bbonkr-test-code-review-action
+description: "A Code Review Action Powered By ChatGPT"
 branding:
-  icon: 'gift'
+  icon: "gift"
   color: orange
 runs:
-  using: 'node20'
-  main: 'action/index.cjs'
+  using: "node20"
+  main: "action/index.cjs"
