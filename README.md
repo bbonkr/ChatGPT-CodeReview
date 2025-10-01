@@ -1,3 +1,6 @@
+> [!note]
+> The code in this repository will be deprecated as of 2025-10-01.
+
 # CodeReview BOT
 
 > A code review robot powered by ChatGPT
